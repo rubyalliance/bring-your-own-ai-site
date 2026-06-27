@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Bring Your Own AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">BYO-AI</div>
+    <h1>Support</h1>
+    <p class="tagline">Help, troubleshooting, and contact.</p>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Getting Started</h2>
+
+      <h3>1. Install</h3>
+      <p>
+        Download <strong>Bring Your Own AI</strong> from the App Store. Requires iOS 26.0 or later,
+        iPhone only.
+      </p>
+
+      <h3>2. Add an API Key</h3>
+      <ol>
+        <li>Open the app and tap the <strong>Models</strong> tab.</li>
+        <li>Tap the <strong>+</strong> button in the top-right.</li>
+        <li>Pick a provider (OpenAI, Anthropic, DeepSeek, Groq, OpenRouter, Ollama, MiniMax, or Custom).</li>
+        <li>Paste your API key. (Get one from your provider's dashboard.)</li>
+        <li>Tap <strong>Test</strong> to confirm the connection works.</li>
+        <li>Save. The endpoint is now available in the Chat tab.</li>
+      </ol>
+
+      <h3>3. Pick a Model</h3>
+      <p>
+        Back in the <strong>Chat</strong> tab, tap the model chip below the input to choose which model
+        to use. You can switch models mid-conversation — different messages in the same chat can come
+        from different models.
+      </p>
+
+      <h3>4. Start Chatting</h3>
+      <p>
+        Type your message. The response will stream in token-by-token. Long-form responses render with
+        full Markdown, code-block syntax highlighting (100+ languages), and LaTeX math.
+      </p>
+    </section>
+
+    <section>
+      <h2>Apple Intelligence (On-Device)</h2>
+      <p>
+        If you have an iPhone 15 Pro or later with Apple Intelligence enabled, you can use Apple's
+        on-device Foundation Model. No API key needed — inference runs entirely on your Neural Engine,
+        with zero network traffic.
+      </p>
+      <p>
+        To enable: Settings → Apple Intelligence → toggle on. Then in Bring Your Own AI, pick
+        <code>AppleFoundationModel</code> as your model.
+      </p>
+    </section>
+
+    <section>
+      <h2>Troubleshooting</h2>
+
+      <h3>"Test" button fails for my endpoint</h3>
+      <ul>
+        <li>Check that the API key is valid and not expired.</li>
+        <li>Check that the base URL is correct (e.g. <code>https://api.openai.com</code>, not <code>https://openai.com</code>).</li>
+        <li>Some providers (e.g. OpenRouter, Ollama) require a different path. Use the <strong>Custom</strong> provider to specify <code>/v1</code> path.</li>
+        <li>If you're using a self-hosted Ollama, ensure the server is reachable from your iPhone (same Wi-Fi, correct bind address).</li>
+      </ul>
+
+      <h3>Streaming response stops mid-way</h3>
+      <ul>
+        <li>Cellular networks sometimes interrupt long streams. Switch to Wi-Fi.</li>
+        <li>Some providers have rate limits. Wait a few seconds and try again.</li>
+        <li>If a response fails, the conversation will show a partial reply. You can re-send by tapping the regenerate button.</li>
+      </ul>
+
+      <h3>My conversation won't open</h3>
+      <ul>
+        <li>Quit and relaunch the app.</li>
+        <li>If the issue persists, the SQLite database may need recovery. Settings → Data Management → Repair Database.</li>
+      </ul>
+
+      <h3>Export to Markdown / JSON</h3>
+      <p>
+        Long-press any conversation in the conversation list, then choose <strong>Export</strong>.
+        The exported file contains all messages with timestamps and the model used for each reply.
+        API keys are stripped from exports.
+      </p>
+    </section>
+
+    <section>
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>Does Bring Your Own AI work offline?</h3>
+      <p>
+        Only with Apple Intelligence. All other providers require internet access to reach their APIs.
+        Once a response is received, it is cached locally and remains available offline.
+      </p>
+
+      <h3>Are my API keys safe?</h3>
+      <p>
+        Yes. They are stored in the iOS Keychain with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>,
+        encrypted with Secure Enclave-backed AES-256, and never leave your device — not even to iCloud backups.
+      </p>
+
+      <h3>Do you see my conversations?</h3>
+      <p>
+        No. Conversations live in a local SQLite database inside the app's sandbox. There is no remote
+        server, no analytics SDK, and no telemetry. The only network calls are HTTPS requests directly
+        to your chosen provider.
+      </p>
+
+      <h3>Can I import existing ChatGPT or Claude conversations?</h3>
+      <p>
+        Not in v1.0. Use Markdown or JSON export from those services, then paste the content into a
+        new conversation in Bring Your Own AI.
+      </p>
+
+      <h3>Will you add support for other providers?</h3>
+      <p>
+        Any OpenAI-compatible endpoint can already be added via the <strong>Custom</strong> provider
+        with a custom base URL. For new built-in providers, open an issue on GitHub.
+      </p>
+
+      <h3>Why is the app called "Bring Your Own AI"?</h3>
+      <p>
+        It's a play on "BYOD" / "BYOK" — the term describes software where users supply their own
+        credentials rather than the vendor managing them centrally. In this case, you supply your own
+        AI provider accounts, so we have nothing to collect, nothing to leak, and nothing to lose in
+        a data breach.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <ul>
+        <li>Email: <a href="mailto:support@bringyourownai.app">support@bringyourownai.app</a></li>
+        <li>GitHub Issues: <a href="https://github.com/fredfung007/bring-your-own-ai/issues">fredfung007/bring-your-own-ai/issues</a></li>
+        <li>Source: <a href="https://github.com/fredfung007/bring-your-own-ai">fredfung007/bring-your-own-ai</a></li>
+      </ul>
+      <p>
+        We try to respond within 48 hours on weekdays.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Bring Your Own AI · Local-first, no servers, no tracking.</p>
+  </footer>
+</body>
+</html>

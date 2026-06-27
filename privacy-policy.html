@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Bring Your Own AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">BYO-AI</div>
+    <h1>Privacy Policy</h1>
+    <p class="tagline">Last updated: June 26, 2026</p>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <p>
+        <strong>Bring Your Own AI does not collect any data.</strong> We have no servers. We have no analytics. We have no telemetry.
+        All conversations are stored locally on your device. All API calls go directly from your device to your chosen provider —
+        we never see your prompts or responses.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Information We Do Not Collect</h2>
+      <p>Bring Your Own AI does not collect, store, transmit, or share any of the following:</p>
+      <ul>
+        <li>Personal information (name, email, phone, address)</li>
+        <li>Conversation content (prompts or responses)</li>
+        <li>API keys you enter</li>
+        <li>Device identifiers (IDFA, IDFV, MAC, IMEI)</li>
+        <li>Location data</li>
+        <li>Usage analytics or telemetry</li>
+        <li>Crash reports</li>
+        <li>Advertising identifiers</li>
+        <li>Any data, period</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Information Stored Locally on Your Device</h2>
+      <p>The following data is stored <strong>only on your device</strong>, inside the app's sandboxed storage. It is never transmitted to us or to any third party except as described in §3:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Where</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Conversation history</td>
+            <td>Local SQLite database</td>
+            <td>Render your chat history within the app</td>
+          </tr>
+          <tr>
+            <td>API keys (e.g. <code>sk-...</code>)</td>
+            <td>iOS Keychain (Secure Enclave AES-256)</td>
+            <td>Authenticate you to your chosen provider</td>
+          </tr>
+          <tr>
+            <td>Endpoint configurations</td>
+            <td>Local SQLite database</td>
+            <td>Remember which providers and models you've configured</td>
+          </tr>
+          <tr>
+            <td>App preferences (theme, default model)</td>
+            <td>UserDefaults</td>
+            <td>Restore your settings on launch</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        All local storage is protected by iOS Data Protection. The SQLite database uses the default
+        <code>NSFileProtectionCompleteUntilFirstUserAuthentication</code> class, which encrypts the file
+        with AES via APFS. The Keychain entries use <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>,
+        meaning they cannot be exfiltrated via iCloud or device backups.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Information Sent Directly to Your Chosen Provider</h2>
+      <p>
+        When you send a message, Bring Your Own AI makes a direct HTTPS request from your device to the
+        AI provider you have configured (e.g. OpenAI, Anthropic, DeepSeek, your self-hosted Ollama, etc.).
+        These requests are made <strong>directly</strong> — they do not pass through any server operated
+        by us, because we have no servers.
+      </p>
+      <p>The request payload contains:</p>
+      <ul>
+        <li>Your current prompt</li>
+        <li>Recent messages from the same conversation (for context)</li>
+        <li>Your API key (as a bearer token in the <code>Authorization</code> header)</li>
+        <li>Optional: image attachments you include (for vision-capable models)</li>
+      </ul>
+      <p>
+        The provider's handling of your data is governed by <strong>their</strong> privacy policy, not ours.
+        Common providers:
+      </p>
+      <ul>
+        <li><a href="https://openai.com/policies/row-privacy-policy">OpenAI Privacy Policy</a></li>
+        <li><a href="https://www.anthropic.com/legal/privacy">Anthropic Privacy Policy</a></li>
+        <li><a href="https://www.deepseek.com/privacy-policy">DeepSeek Privacy Policy</a></li>
+        <li><a href="https://groq.com/privacy-policy/">Groq Privacy Policy</a></li>
+        <li><a href="https://openrouter.ai/privacy">OpenRouter Privacy Policy</a></li>
+        <li><a href="https://ollama.com/privacy">Ollama Privacy Policy</a></li>
+        <li>Apple Foundation Model runs entirely on-device — no data leaves your iPhone.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Apple Foundation Model (On-Device)</h2>
+      <p>
+        When you use Apple's on-device Foundation Model (Apple Intelligence), no network request is made.
+        All inference happens locally on your iPhone's Neural Engine. No prompts, no responses, and no
+        metadata leave your device.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Third-Party Software</h2>
+      <p>Bring Your Own AI uses the following open-source libraries. None of them collect, transmit, or share any data:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Library</th>
+            <th>License</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/stephencelis/SQLite.swift">SQLite.swift</a></td>
+            <td>MIT</td>
+            <td>Local SQLite persistence</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/kishikawakatsumi/KeychainAccess">KeychainAccess</a></td>
+            <td>MIT</td>
+            <td>Secure API key storage</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/gonzalezreal/swift-markdown-ui">MarkdownUI</a></td>
+            <td>MIT</td>
+            <td>Markdown rendering</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/raspu/Highlightr">Highlightr</a></td>
+            <td>MIT</td>
+            <td>Syntax highlighting in code blocks</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>6. Children's Privacy</h2>
+      <p>
+        Bring Your Own AI does not knowingly collect any information from anyone, including children under 13.
+        Because we collect nothing at all, this is structurally guaranteed.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Your Rights</h2>
+      <p>You have full control over your data:</p>
+      <ul>
+        <li><strong>Delete a conversation:</strong> Swipe-left on any row in the conversation list, or tap the trash icon on the conversation detail.</li>
+        <li><strong>Clear all history:</strong> Settings → Data Management → Clear All Chat History.</li>
+        <li><strong>Delete an API key:</strong> Models → tap the endpoint → clear the API key field.</li>
+        <li><strong>Export your data:</strong> Long-press a conversation → Export as Markdown / JSON.</li>
+        <li><strong>Uninstall:</strong> Removing the app from your device deletes all local data.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. International Transfers</h2>
+      <p>
+        Because we operate no servers, no data is transferred to us from anywhere. The only cross-border
+        traffic is between your device and the AI provider you have chosen, which is governed by that
+        provider's privacy policy.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Changes to This Policy</h2>
+      <p>
+        If we ever change this policy, we will update the "Last updated" date above and ship a new
+        app version with an in-app notification. Material changes will be highlighted in the release notes.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Contact</h2>
+      <p>
+        Questions? Concerns? Email us at <a href="mailto:support@bringyourownai.app">support@bringyourownai.app</a>
+        or open an issue on <a href="https://github.com/fredfung007/bring-your-own-ai/issues">GitHub</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Bring Your Own AI · Local-first, no servers, no tracking.</p>
+  </footer>
+</body>
+</html>
