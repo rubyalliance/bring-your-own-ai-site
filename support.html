@@ -31,7 +31,7 @@
       <ol>
         <li>Open the app and tap the <strong>Models</strong> tab.</li>
         <li>Tap the <strong>+</strong> button in the top-right.</li>
-        <li>Pick a provider (OpenAI, Anthropic, DeepSeek, Groq, OpenRouter, Ollama, MiniMax, or Custom).</li>
+        <li>Pick a provider (OpenAI, Anthropic, DeepSeek, MiniMax, or Custom).</li>
         <li>Paste your API key. (Get one from your provider's dashboard.)</li>
         <li>Tap <strong>Test</strong> to confirm the connection works.</li>
         <li>Save. The endpoint is now available in the Chat tab.</li>
@@ -52,27 +52,13 @@
     </section>
 
     <section>
-      <h2>Apple Intelligence (On-Device)</h2>
-      <p>
-        If you have an iPhone 15 Pro or later with Apple Intelligence enabled, you can use Apple's
-        on-device Foundation Model. No API key needed — inference runs entirely on your Neural Engine,
-        with zero network traffic.
-      </p>
-      <p>
-        To enable: Settings → Apple Intelligence → toggle on. Then in Bring Your Own AI, pick
-        <code>AppleFoundationModel</code> as your model.
-      </p>
-    </section>
-
-    <section>
       <h2>Troubleshooting</h2>
 
       <h3>"Test" button fails for my endpoint</h3>
       <ul>
         <li>Check that the API key is valid and not expired.</li>
         <li>Check that the base URL is correct (e.g. <code>https://api.openai.com</code>, not <code>https://openai.com</code>).</li>
-        <li>Some providers (e.g. OpenRouter, Ollama) require a different path. Use the <strong>Custom</strong> provider to specify <code>/v1</code> path.</li>
-        <li>If you're using a self-hosted Ollama, ensure the server is reachable from your iPhone (same Wi-Fi, correct bind address).</li>
+        <li>Some providers require a custom base URL or path. Use the <strong>Custom</strong> provider to specify a full URL.</li>
       </ul>
 
       <h3>Streaming response stops mid-way</h3>
@@ -101,8 +87,8 @@
 
       <h3>Does Bring Your Own AI work offline?</h3>
       <p>
-        Only with Apple Intelligence. All other providers require internet access to reach their APIs.
-        Once a response is received, it is cached locally and remains available offline.
+        No. All four supported providers (OpenAI, Anthropic, DeepSeek, MiniMax) require internet access
+        to reach their APIs. Once a response is received, it is cached locally and remains available offline.
       </p>
 
       <h3>Are my API keys safe?</h3>
@@ -141,13 +127,15 @@
 
     <section>
       <h2>Contact</h2>
+      <p>
+        File an issue or ask a question on GitHub:
+      </p>
       <ul>
-        <li>Email: <a href="mailto:support@bringyourownai.app">support@bringyourownai.app</a></li>
-        <li>GitHub Issues: <a href="https://github.com/fredfung007/bring-your-own-ai/issues">fredfung007/bring-your-own-ai/issues</a></li>
-        <li>Source: <a href="https://github.com/fredfung007/bring-your-own-ai">fredfung007/bring-your-own-ai</a></li>
+        <li><a href="https://github.com/fredfung007/bring-your-own-ai-site/issues">File an issue</a> — bug reports, feature requests, and questions</li>
+        <li><a href="https://github.com/fredfung007/bring-your-own-ai">Source code</a></li>
       </ul>
       <p>
-        We try to respond within 48 hours on weekdays.
+        We respond to issues within a few weekdays.
       </p>
     </section>
   </main>
