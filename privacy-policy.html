@@ -10,7 +10,7 @@
   <header>
     <div class="brand">BYO-AI</div>
     <h1>Privacy Policy</h1>
-    <p class="tagline">Last updated: June 26, 2026</p>
+    <p class="tagline">Last updated: October 9, 2026</p>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="support.html">Support</a>
@@ -76,6 +76,21 @@
             <td>UserDefaults</td>
             <td>Restore your settings on launch</td>
           </tr>
+          <tr>
+            <td>Memories the model saved or you wrote</td>
+            <td>Local files in the app's Documents folder</td>
+            <td>Give the model lasting context that you chose to keep</td>
+          </tr>
+          <tr>
+            <td>Skills you added</td>
+            <td>Local SQLite database</td>
+            <td>Extra instructions you turn on or off</td>
+          </tr>
+          <tr>
+            <td>System prompt: the built-in prompt setting, your own instructions, and instructions for a single chat</td>
+            <td>UserDefaults and the local SQLite database</td>
+            <td>Tell the model how you want it to answer</td>
+          </tr>
         </tbody>
       </table>
 
@@ -91,7 +106,7 @@
       <h2>3. Information Sent Directly to Your Chosen Provider</h2>
       <p>
         When you send a message, Bring Your Own AI makes a direct HTTPS request from your device to the
-        AI provider you have configured (OpenAI, Anthropic, DeepSeek, or MiniMax).
+        AI provider you have configured (one of those listed below, or a custom endpoint you entered).
         These requests are made <strong>directly</strong> — they do not pass through any server operated
         by us, because we have no servers.
       </p>
@@ -99,9 +114,15 @@
       <ul>
         <li>Your current prompt</li>
         <li>Recent messages from the same conversation (for context)</li>
+        <li>The system prompt: the app's built-in instructions, which include the current date and your time zone, and any instructions you wrote in Settings or for a chat. You can edit the built-in instructions or turn them off in Settings.</li>
+        <li>Your saved memories and the skills you turned on, which go with every message</li>
         <li>Your API key (as a bearer token in the <code>Authorization</code> header)</li>
         <li>Optional: image attachments you include (for vision-capable models)</li>
       </ul>
+      <p>
+        Apple Intelligence, when you choose it as the model, runs on your device: nothing is sent to Apple or
+        to any third party.
+      </p>
       <p>
         The provider's handling of your data is governed by <strong>their</strong> privacy policy, not ours.
         Supported providers:
@@ -109,9 +130,19 @@
       <ul>
         <li><a href="https://openai.com/policies/row-privacy-policy">OpenAI Privacy Policy</a></li>
         <li><a href="https://www.anthropic.com/legal/privacy">Anthropic Privacy Policy</a></li>
-        <li><a href="https://www.deepseek.com/privacy-policy">DeepSeek Privacy Policy</a></li>
-        <li><a href="https://www.minimax.io/privacy">MiniMax Privacy Policy</a></li>
+        <li><a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html">DeepSeek Privacy Policy</a></li>
+        <li><a href="https://platform.minimax.io/protocol/privacy-policy">MiniMax Privacy Policy</a></li>
+        <li><a href="https://docs.z.ai/legal-agreement/privacy-policy">GLM (Z.ai) Privacy Policy</a></li>
+        <li><a href="https://platform.kimi.ai/docs/agreement/userprivacy">Kimi Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/privacy">Google (Gemini) Privacy Policy</a></li>
+        <li><a href="https://x.ai/legal/privacy-policy">xAI Privacy Policy</a></li>
+        <li><a href="https://dashscope.aliyuncs.com/help/en/legal-agreements/privacy-policy">Qwen (Alibaba Cloud) Privacy Policy</a></li>
+        <li><a href="https://legal.mistral.ai/terms/privacy-policy">Mistral Privacy Policy</a></li>
       </ul>
+      <p>
+        A custom endpoint is operated by whoever runs it; its handling of your data is governed by that
+        operator's terms.
+      </p>
     </section>
 
     <section>
